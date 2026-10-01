@@ -15,6 +15,7 @@
 #include"clsMainScreen.h"
 #include"clsBankUser.h"
 #include"clsLoginScreen.h"
+#include"clsBankCurrency.h"
 #include"Globelheader.h"
 enum enChoosUpdate
 {
@@ -58,17 +59,38 @@ using namespace std;
 	 // cout << "\n\t\t\t\t\t TotalBalnces is : " << totalbalance <<endl;
 	 // cout << "\n\t\t\t\t\t (" << clsUtil::NumberTotext(totalbalance) <<")" << endl;
      //}
+template <typename T>T MySum(T n1,T n2) {
+	return n1 + n2;
+}
+template<class T>
+class clsCalcolater {
+	int n1, n2;
+
+};
 int main()
 {
+	clsCalcolater mm;
 	//clsBankUser User = clsBankUser::Find("hasan");
 	//cout << clsBankUser::IsUserExist("User1");
 	//clsMainScreen::ShowMainMenue();
-	while (true)
+	cout << MySum(0.2, 0.14)<<endl;
+	cout << MySum(14, 10)<<endl;
+	cout << MySum('c', 'd')<<endl;
+
+	/*while (true)
 	{
 		if (!clsLoginScreen::ShowLoginScreen())
 			break;
-	}
+	}*/
 
 
+
+	//clsListCurrencyScreen::ShowListCurrenncyScreen();
+	//clsBankCurrency cur = clsBankCurrency::FindByCodCureency("USA");
+	////cout << cur.getRate();
+	//if (clsBankCurrency::IsExistObject("US0D"))
+	//	cout << "the Object is true ";
+	//else
+	//	cout << "the Object is false ";
 	//system("pause>0");
 }

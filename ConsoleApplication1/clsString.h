@@ -91,12 +91,13 @@ public:
       PrintFirstLetter(_Value);
   }
 
-  static void PrintMassegAllLetterUpper(string S1) {
+  static string PrintMassegAllLetterUpper(string S1) {
       for (int i = 0; i < S1.length(); i++)
       {
           S1[i] = toupper(S1[i]);
       }
-      cout << S1 << endl;
+      //cout << S1 << endl;
+      return S1;
   }
 
   void PrintMassegAllLetterUpper() {

@@ -10,7 +10,7 @@
 #include"clsNotPermissionScreen.h"
 #include"Globelheader.h"
 #include"clsLogInRegisterScreen.h"
-
+#include"clsCurrencyExchangScreen.h"
 class clsMainScreen : protected clsScreen
 {
 private:
@@ -24,7 +24,8 @@ private:
         enTransaction = 6,
         enManagmentUser = 7,
         enLogInRegister=8,
-        LogOut = 9,
+        enCurrencyExchang=9,
+        LogOut = 10,
     };
   /*  static bool _IsHavePermission(int per) {
         if (CurrentUser.getPermission() == -1)
@@ -32,7 +33,7 @@ private:
         return ((CurrentUser.getPermission() & per) == per);
     }*/
     static int   _ReadMainMenueOption() {
-        int number = clsInputValidate::ReadIntergetNumberBetween(1,9,"Enter Number Between 1 and 9 ");
+        int number = clsInputValidate::ReadIntergetNumberBetween(1,10,"Enter Number Between 1 and 10 ");
         return number;
     }
     static void  _ShowCleintListScreen() {
@@ -100,6 +101,9 @@ private:
         }
         clsLogInRegisterScreen::ShowLogInRegisterScreen();
     }
+    static void _CurrencyExchangScreen() {
+        clsCurrencyExchangScreen::showCurrencyExchangScreen();
+    }
     static void  _EndMainScreen() {
        // clsLoginScreen::ShowLoginScreen();
         CurrentUser = clsBankUser::Find("");
@@ -155,6 +159,11 @@ private:
             _LogInRegisterScreen();
             _GoToBackMainScreen();
             break;
+        case clsMainScreen::enCurrencyExchang:
+            system("cls");
+            _CurrencyExchangScreen();
+            _GoToBackMainScreen();
+            break;
         case clsMainScreen::LogOut:
             system("cls");
             _EndMainScreen();
@@ -180,7 +189,8 @@ public:
         cout << "\t\t\t\t\t" << "\t[6] Transaction Cleint \n";
         cout << "\t\t\t\t\t" << "\t[7] Managements Users \n";
         cout << "\t\t\t\t\t" << "\t[8] Show LogIn Register \n";
-        cout << "\t\t\t\t\t" << "\t[9] Logout \n";
+        cout << "\t\t\t\t\t" << "\t[9] Currency Exchang \n";
+        cout << "\t\t\t\t\t" << "\t[10] Logout \n";
         cout << "\t\t\t\t\t" << "================================================\n";
         _performansMainScreen(enMainMenauOptions(_ReadMainMenueOption()));
 	}
